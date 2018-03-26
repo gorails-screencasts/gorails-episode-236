@@ -1,0 +1,41 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Slide_decks</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_slide_deck_path, class: 'btn btn-primary' do %>
+    Add New Slide deck
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+        <th>Name</th>
+    
+
+            
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @slide_decks.each do |slide_deck| %>
+        <%= content_tag :tr, id: dom_id(slide_deck), class: dom_class(slide_deck) do %>
+          
+            <td><%= link_to slide_deck.name, slide_deck %></td>
+          
+
+          
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

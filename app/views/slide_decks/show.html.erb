@@ -1,0 +1,19 @@
+<div class="page-header">
+  <%= link_to slide_decks_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Slide_decks
+  <% end %>
+  <%= link_to edit_slide_deck_path(@slide_deck), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show slide_deck</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @slide_deck.name %></dd>
+
+  <dt>Preview:</dt>
+  <dd><%= image_tag @slide_deck.presentation.preview(resize: "400x400") %></dd>
+</dl>

@@ -1,0 +1,39 @@
+<%= form_with(model: slide_deck, local: true) do |form| %>
+  <% if slide_deck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(slide_deck.errors.count, "error") %> prohibited this slide_deck from being saved:</h2>
+
+      <ul>
+      <% slide_deck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :presentation %>
+    <%= form.file_field :presentation, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if slide_deck.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', slide_deck, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if slide_deck.persisted? %>
+      <%= link_to "Cancel", slide_deck, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", slide_decks_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
